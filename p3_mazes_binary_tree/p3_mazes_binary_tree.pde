@@ -7,7 +7,7 @@ void setup() {
   for( int i = 0; i < grid.length; i++) {
     for( int j = 0 ; j < grid[i].length; j++ ) {
       grid[i][j] = new Node();
-      if( random(-1, 1) > 0 ) {
+      if( j == grid[i].length - 1 || (random(-1, 1) > 0  && i < grid.length - 1)) {
          grid[i][j].right = true; 
       }
       else {
