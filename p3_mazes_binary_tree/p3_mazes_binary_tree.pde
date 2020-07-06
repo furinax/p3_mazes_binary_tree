@@ -1,4 +1,4 @@
-Node[][] grid = new Node[8][6];
+Node[][] grid = new Node[80][60];
 int MARGIN = 50;
 
 void setup() {
@@ -29,7 +29,7 @@ void draw() {
   PVector BL = new PVector(MARGIN, height-MARGIN);
   int STEP_X = int((TR.x - TL.x) / grid.length);
   int STEP_Y = int((BL.y - TL.y) / grid[0].length);
-  quad(TL.x, TL.y, TR.x, TR.y, BR.x, BR.y, BL.x, BL.y);
+  //quad(TL.x, TL.y, TR.x, TR.y, BR.x, BR.y, BL.x, BL.y);
   
    
   for( int i = 0; i < grid.length; i++) {
@@ -45,19 +45,19 @@ void draw() {
       PVector b = new PVector(TL.x + i * STEP_X, TL.y + j * STEP_Y);
       if( grid[i][j].left )
       {
-        line(b.x, b.y, b.x, b.y + STEP_Y);
+        line(b.x, b.y+1, b.x, b.y + STEP_Y-1);
       }
       if( grid[i][j].right )
       {
-        line(b.x + STEP_X, b.y, b.x + STEP_X, b.y + STEP_Y);
+        line(b.x + STEP_X, b.y+1, b.x + STEP_X, b.y + STEP_Y-1);
       }
       if( grid[i][j].up )
       {
-        line(b.x, b.y, b.x + STEP_X, b.y);
+        line(b.x+1, b.y, b.x + STEP_X-1, b.y);
       }
       if( grid[i][j].down )
       {
-        line(b.x, b.y + STEP_Y, b.x + STEP_X, b.y + STEP_Y);
+        line(b.x+1, b.y + STEP_Y, b.x + STEP_X-1, b.y + STEP_Y);
       }
     }
   }
